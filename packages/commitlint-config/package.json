@@ -1,0 +1,24 @@
+{
+  "name": "xy-commitlint-config",
+  "version": "0.0.0",
+  "main": "index.js",
+  "description": "Git规范",
+  "keywords": [
+    "xy",
+    "commit",
+    "lint"
+  ],
+  "author": "GXY",
+  "homepage": "https://github.com/GXY1523/fe-spec#readme",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GXY1523/fe-spec.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GXY1523/fe-spec/issues"
+  },
+  "dependencies": {
+    "conventional-changelog-conventionalcommits": "^4.5.0"
+  }
+}
