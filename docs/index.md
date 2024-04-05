@@ -27,5 +27,3 @@ features:
 ## :email: 联系
 
 -   **GitHub**: <https://github.com/GXY1523/fe-spec>
-
-</br>
