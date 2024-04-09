@@ -96,20 +96,19 @@ author:
 
     > 在 `HTTP2`（Chrome 浏览器 69 版本之后，`Firefox` 和 `Edge`）中可以在 `body` 中使用 `link` 标签引入样式文件，但不推荐在 `body` 中使用 `<style>` 标签的内联样式。\*\*`<link rel="stylesheet">`。
 
-    除了基础库等必须要在 DOM 加载之前运行的 JavaScript 脚本，其他都在靠近 `body` 结束标签前引入，以防止出现页面渲染的阻塞，[了解更多](https://developer.yahoo.com/performance/rules.html#js_bottom)。
+    除了基础库等必须要在 DOM 加载之前运行的 JavaScript 脚本，其他都在靠近 `body` 结束标签前引入，以防止出现页面渲染的阻塞。
 
     ```html
     <!-- bad -->
     <!DOCTYPE html>
     <html>
      <head>
-      <script src="mod-a.js"></script>
-      <script src="jquery.js"></script>
+      <script src="index.js"></script>
      </head>
      <body>
       <style>
-       .mod-example {
-        padding-left: 15px;
+       .content {
+        padding: 12px;
        }
       </style>
      </body>
@@ -120,14 +119,14 @@ author:
     <html>
      <head>
       <style>
-       .mod-example {
-        padding-left: 15px;
+       .content {
+        padding: 12px;
        }
       </style>
      </head>
      <body>
       ...
-      <script src="path/to/my/script.js"></script>
+      <script src="index.js"></script>
      </body>
     </html>
     ```
@@ -138,7 +137,7 @@ author:
     <link rel="stylesheet" href="//g.cdn.com/lib/style/index-min.css" />
     ```
 
-- 1.4.4.【推荐】使用 `preload` 预加载关键资源，[了解更多](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Preloading_content)。
+- 1.4.4.【推荐】使用 `preload` 预加载关键资源，[了解更多](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/preload)。
 
     ```html
     <link rel="preload" href="style.css" as="style" />
@@ -159,7 +158,7 @@ author:
     ```html
     <head>
      <meta charset="utf-8" />
-     <title>印客学院</title>
+     <title>页面标题</title>
     </head>
     ```
 
@@ -173,7 +172,7 @@ author:
     <!DOCTYPE html>
     <html>
      <head>
-      <title>印客学院</title>
+      <title>2个空格缩进</title>
      </head>
      <body>
       <img src="images/company-logo.png" alt="Company" />
@@ -222,18 +221,18 @@ author:
 
 - 2.3.2.【推荐】不要省略自闭合标签结尾处的斜线，且斜线前需留有一个空格。
 
-    虽然 [HTML5 规范](https://dev.w3.org/html5/spec-author-view/syntax.html#syntax-start-tag) 中指出结尾的斜线是可选的，但保留它们可以明确表达该标签已闭合的语义，更易于维护和理解。
+    虽然 HTML5 规范中指出结尾的斜线是可选的，但保留它们可以明确表达该标签已闭合的语义，更易于维护和理解。
 
     同时，在 `React` 被广泛使用的今天，这与 [JSX 的规范](https://react-cn.github.io/react/tips/self-closing-tag.html) 相一致，JSX 中自闭合标签必须保留结尾的斜线。
 
     ```html
     <!-- bad -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <img src="images/foo.png" alt="foo">
+    <img src="images/logo.png" alt="logo">
 
     <!-- good -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <img src="images/foo.png" alt="foo" />
+    <img src="images/logo.png" alt="logo" />
     ```
 
 ### 2.4. 属性
@@ -242,10 +241,10 @@ author:
 
     ```html
     <!-- bad -->
-    <link rel='stylesheet' href='example.css' />
+    <link rel='stylesheet' href='index.css' />
 
     <!-- good -->
-    <link rel="stylesheet" href="example.css" />
+    <link rel="stylesheet" href="index.css" />
     ```
 
 - 2.4.2.【推荐】不要为 `Boolean` 属性添加取值。
@@ -337,15 +336,15 @@ author:
 <html lang="zh-CN">
  <head>
   <meta charset="utf-8" />
-  <meta name="description" content="印客学院 - 一千个职业梦想的赞助商" />
-  <meta name="keyword" content="印客学院" />
+  <meta name="description" content="This is the description" />
+  <meta name="keyword" content="XY" />
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, viewport-fit=cover" />
-  <title>印客学院</title>
-  <link rel="stylesheet" href="example.css" />
+  <title>脚手架模板</title>
+  <link rel="stylesheet" href="index.css" />
  </head>
  <body>
   <div id="container"></div>
-  <script src="example.js"></script>
+  <script src="index.js"></script>
  </body>
 </html>
 ```

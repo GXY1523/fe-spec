@@ -17,105 +17,103 @@ author:
 
 ### 1.1. 编码风格
 
-![style](./img/style.svg)
+![style](./img/css.svg)
 
 详细规则如下：
 
-- 1.1.1.【强制】所有声明都应该以分号结尾，不能省略。`stylelint`: [declaration-block-trailing-semicolon](https://stylelint.io/user-guide/rules/declaration-block-trailing-semicolon)
+- 1.1.1.【强制】所有声明都应该以分号结尾，不能省略。
   
-  虽然 `CSS` 语法中最后一条声明的分号是可选的，但是使用分号可以增加代码的一致性和易用性。
+  虽然 `CSS` 语法中最后一条声明的分号是可选的，但使用分号可以增加代码的一致性和易用性。
 
   ```css
   /* bad */
-  .selector {
-    margin-top: 10px
-    padding-left: 15px
+  .head {
+    height: 200px
+    margin: 0 auto
   }
 
   /* good */
-  .selector {
-    margin-top: 10px;
-    padding-left: 15px;
+  .head {
+    height: 200px;
+    margin: 0 auto;
   }
   ```
 
-- 1.1.2.【推荐】使用 2 个空格缩进，不要使用 4 个空格或 tab 缩进。`stylelint`: [indentation](https://stylelint.io/user-guide/rules/indentation)
+- 1.1.2.【推荐】使用 2 个空格缩进，不要使用 4 个空格或 tab 缩进。
 
   ```css
   /* bad */
-  .selector {
-      padding-left: 15px;
+  .head {
+      height: 200px;
   }
 
   /* good */
-  .selector {
-    padding-left: 15px;
+  .head {
+    height: 200px;
+  }   
+  ```
+
+- 1.1.3.【推荐】选择器和 `{` 之间保留一个空格。
+
+  ```css
+  /* bad */
+  .head{
+    height: 200px;
+  }
+
+  /* good */
+  .head {
+    height: 200px;
   }
   ```
 
-- 1.1.3.【推荐】选择器和 `{` 之间保留一个空格。`stylelint`: [block-opening-brace-space-before](https://stylelint.io/user-guide/rules/block-opening-brace-space-before) 
+- 1.1.4.【推荐】属性名和 `:` 之前无空格，`:` 和属性值之间保留一个空格。
 
   ```css
   /* bad */
-  .selector{
-    padding-left: 15px;
+  .head {
+    height : 200px;
+    margin:0 auto;
   }
 
   /* good */
-  .selector {
-    padding-left: 15px;
+  .head {
+    height: 200px;
+    margin: 0 auto;
   }
   ```
 
-- 1.1.4.【推荐】属性名和 `:` 之前无空格，`:` 和属性值之间保留一个空格。`stylelint`: [declaration-colon-space-after](https://stylelint.io/user-guide/rules/declaration-colon-space-after) [declaration-colon-space-before](https://stylelint.io/user-guide/rules/declaration-colon-space-before) 
+- 1.1.5.【推荐】`>`、`+`、`~` 、`||` 等组合器前后各保留一个空格。
 
   ```css
   /* bad */
-  .selector {
-    margin-top : 10px;
-    padding-left:15px;
+  .container>.container-left {
+    padding: 2px;
+  }
+  .container+.container-left {
+    padding: 2px;
   }
 
   /* good */
-  .selector {
-    margin-top: 10px;
-    padding-left: 15px;
+  .container > .container-left {
+    padding: 2px;
+  }
+  .container + .container-left {
+    padding: 2px;
   }
   ```
 
-- 1.1.5.【推荐】`>`、`+`、`~` 、`||` 等组合器前后各保留一个空格。`stylelint`: [selector-combinator-space-before](https://stylelint.io/user-guide/rules/selector-combinator-space-before) [selector-combinator-space-after](https://stylelint.io/user-guide/rules/selector-combinator-space-after)
+- 1.1.6.【推荐】在使用 `,` 分隔的属性值，`,` 之后保留一个空格。
 
   ```css
   /* bad */
-  .selector>.children {
-    padding-left: 15px;
-  }
-  .selector+.brother {
-    padding-left: 15px;
+  .box3 {
+    background-color: rgba(95,249,241,0.9);
   }
 
   /* good */
-  .selector > .children {
-    padding-left: 15px;
-  }
-  .selector + .brother {
-    padding-left: 15px;
-  }
-  ```
-
-- 1.1.6.【推荐】在使用 `,` 分隔的属性值中，`,` 之后保留一个空格。`stylelint`: [value-list-comma-space-after](https://stylelint.io/user-guide/rules/value-list-comma-space-after)
-
-  ```css
-  /* bad */
-  .selector {
-    background-color: rgba(0,0,0,0.5);
-    box-shadow: 0px 1px 2px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.5);
-  }
-
-  /* good */
-  .selector {
-    background-color: rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  .box3 {
+    background-color: rgba(95, 249, 241, 0.9);
   }
   ```
 
@@ -123,55 +121,90 @@ author:
 
   ```css
   /* bad */
-  .selector {
-    /*comment*/
-    /*  comment  */
+  .head {
     /**
-     *comment
-     */
-    padding-left: 15px;
+    *块注释
+    */
+    width: 200px;
+
+    /*行注释 */
+    height: 200px;
+
+    /*  行注释  */
+    margin: 0 auto;
   }
 
   /* good */
-  .selector {
-    /* comment */
+  .head {
     /**
-     * comment
-     */
-    padding-left: 15px;
+    * 块注释
+    */
+    width: 200px;
+
+    /* 行注释 */
+    height: 200px;
+    margin: 0 auto;
   }
   ```
-
-- 1.1.8.【推荐】声明块的右大括号 `}` 应单独成行。
+  
+- 1.1.8.【参考】注释行上方需留有一行空行，除非上一行是注释或块的顶部。`stylelint`: [comment-empty-line-before](https://stylelint.io/user-guide/rules/comment-empty-line-before)
 
   ```css
   /* bad */
-  .selector {
-    padding-left: 15px;}
+  .head {
+
+    /**
+    * 块注释
+    */
+    width: 200px;
+    /* 行注释 */
+    height: 200px;
+    margin: 0 auto;
+  }
 
   /* good */
-  .selector {
-    padding-left: 15px;
+  .head {
+    /**
+    * 块注释
+    */
+    width: 200px;
+
+    /* 行注释 */
+    height: 200px;
+    margin: 0 auto;
   }
   ```
 
-- 1.1.9.【推荐】属性声明应单独成行。`stylelint`: [declaration-block-single-line-max-declarations](https://stylelint.io/user-guide/rules/declaration-block-single-line-max-declarations)
+- 1.1.9.【推荐】声明块的右大括号 `}` 应单独成行。
 
   ```css
   /* bad */
-  .selector {
-    padding-left: 15px;  margin-left: 10px;
+  .head {
+    margin: 0 auto;}
+
+  /* good */
+  .head {
+    margin: 0 auto;
+  }
+  ```
+
+- 1.1.10.【推荐】属性声明应单独成行。`stylelint`: [declaration-block-single-line-max-declarations](https://stylelint.io/user-guide/rules/declaration-block-single-line-max-declarations)
+
+  ```css
+  /* bad */
+  .head {
+    height: 200px;margin: 0 auto;
   }
 
   /* good */
-  .selector {
-    padding-left: 15px;
-    margin-left: 10px;
+  .head {
+    height: 200px;
+    margin: 0 auto;
   }
   ```
 
 
-- 1.1.10.【推荐】单行代码最多不要超过 100 个字符。 `stylelint`: [max-line-length](https://stylelint.io/user-guide/rules/max-line-length) 除了以下两种情况：
+- 1.1.11.【推荐】单行代码最多不要超过 100 个字符。 `stylelint`: [max-line-length](https://stylelint.io/user-guide/rules/max-line-length) 除了以下两种情况：
 
   - 使用 [`url()`](https://developer.mozilla.org/en-US/docs/Web/CSS/url) 函数时
   - CSS 属性值本身无法换行时，即属性值内无空格或逗号时
@@ -190,55 +223,33 @@ author:
   );
   ```
 
-- 1.1.11.【参考】使用多个选择器时，每个选择器应该单独成行。`stylelint`: [selector-list-comma-newline-after](https://stylelint.io/user-guide/rules/selector-list-comma-newline-after)
+- 1.1.12.【参考】使用多个选择器时，每个选择器应该单独成行。
   
   ```css
   /* bad */
-  .selector, .selector-secondary, .selector-third {
-    padding: 15px;
-    margin-bottom: 15px;
+  .box1,.box2,.box3 {
+    padding: 10px;
+    background-color: rgba(95, 249, 241, 0.9);
   }
 
   /* good */
-  .selector,
-  .selector-secondary,
-  .selector-third {
-    padding: 15px;
-    margin-bottom: 15px;
+  .box1,
+  .box2,
+  .box3 {
+    padding: 10px;
+    background-color: rgba(95, 249, 241, 0.9);
   }
   ```
 
-- 1.1.12.【参考】声明块内只有一条语句时，也应该写成多行。
+- 1.1.13.【参考】声明块内只有一条语句时，也应该写成多行。
 
   ```css
   /* bad */
-  .selector { padding-left: 15px; }
+  .head { height: 200px; }
 
   /* good */
-  .selector {
-    padding-left: 15px;
-  }
-  ```
-
-- 1.1.13.【参考】注释行上方需留有一行空行，除非上一行是注释或块的顶部。`stylelint`: [comment-empty-line-before](https://stylelint.io/user-guide/rules/comment-empty-line-before)
-
-  ```css
-  /* bad */
-  .selector {
-
-    /* comment */
-    padding-left: 15px;
-    /* comment */
-    padding-right: 15px;
-  }
-
-  /* good */
-  .selector {
-    /* comment */
-    padding-left: 15px;
-
-    /* comment */
-    padding-right: 15px;
+  .head {
+    height: 200px;
   }
   ```
 
@@ -306,76 +317,72 @@ author:
 
   ```css
   /* bad */
-  .selector {
-    color: #ffffff;
+  .header {
+    background-color: #ffffff;
   }
 
   /* good */
-  .selector {
-    color: #fff;
+  .header {
+    background-color: #fff;
   }
   ```
 
 - 1.3.2.【推荐】不要使用 `!important` 重写样式。
 
-- 1.3.3.【推荐】十六进制值统一使用小写字母（小写字母更容易分辨）。`stylelint`: [color-hex-case](https://stylelint.io/user-guide/rules/color-hex-case)
+- 1.3.3.【推荐】十六进制值统一使用小写字母（小写字母更容易分辨）。
 
   ```css
   /* bad */
-  .selector {
-    color: #FEFEFE;
+  .header {
+    background-color: #FFF;
   }
 
   /* good */
-  .selector {
-    color: #fefefe;
+  .header {
+    background-color: #fff;
   }
   ```
 
-- 1.3.4.【推荐】长度值为 0 时，省略掉长度单位。`stylelint`: [length-zero-no-unit](https://stylelint.io/user-guide/rules/length-zero-no-unit)
+- 1.3.4.【推荐】长度值为 0 时，省略掉长度单位。
 
   在 CSS 中，长度值为 0 时，它的单位是可选的（长度单位包括：em, ex, ch, vw, vh, cm, mm, in, pt, pc, px, rem, vmin, and vmax）。省略长度单位可以使代码更简洁：
 
   ```css
   /* bad */
-  .selector {
-    margin-top: 0px;
-    font-size: 0em;
+  .head {
+    margin: 0px;
   }
 
   /* good */
-  .selector {
-    margin-top: 0;
-    font-size: 0;
+  .head {
+    margin: 0;
   }
   ```
 
 - 1.3.5.【参考】保留小数点前的 0。`stylelint`: [number-leading-zero](https://stylelint.io/user-guide/rules/number-leading-zero)
 
-  在 CSS 中，大于 -1 小于 1 的小数，小数点前的 0 可以省略：
+  在 CSS 中，大于 -1 小于 1 的小数，保留小数点前的 0 ：
 
   ```css
   /* bad */
-  .selector {
-    opacity: .5;
+  .head {
     left: -.5px;
   }
 
   /* good */
-  .selector {
-    opacity: 0.5;
+  .head {
     left: -0.5px;
   }
   ```
 
-  对于是否省略小数点前的 0，业界存在争议：
+  对于是否省略小数点前的 0，仍存在争议：
 
-  - 省略 0 的好处是：代码更简洁，可以减少一个字符
-  - 不省略的好处是：代码可读性更好、一致性更强
+  - 省略 0 的好处：代码更简洁，可以减少一个字符
+  - 不省略 0 的好处：代码可读性更好、一致性更强
 
-  你可选择自己倾向的风格，在代码中风格统一即可，要么都省略，要么都保留。
+  可选择自己倾向的风格，在代码中风格统一即可，要么都省略，要么都保留。
 
-  我们推荐保留 0，因为当今很多 CSS 压缩工具会在压缩时帮我们去掉 0，不存在多占用一个字符的问题。保留 0 能增强代码的可读性和一致性。
+  在此推荐保留 0，因为当今很多 CSS 压缩工具会在压缩时帮我们去掉 0，不存在多占用一个字符的问题。保留 0 可以增强代码的可读性和一致性。
 
 - 1.3.6.【参考】属性声明的顺序。
 
@@ -465,13 +472,13 @@ author:
 
   ```css
   /* bad */
-  .selector {
-    margin: 0 0 10px;
+  .head {
+    margin: 10px 0 0;
   }
 
   /* good */
-  .selector {
-    margin-bottom: 10px;
+  .head {
+    margin-top: 10px;
   }
   ```
 
@@ -481,14 +488,14 @@ author:
 
   与 `<link>` 相比，`@import` 会在关键渲染路径上增加更多的往返（即关键路径的深度变长），这样会导致浏览器处理 CSS 文件速度变慢，因此我们应该避免使用 `@import`。
 
-  ```css
+  ```html
   <!-- bad -->
   <style>
-    @import url("more.css");
+    @import url("style.css");
   </style>
 
   <!-- good -->
-  <link rel="stylesheet" href="more.css">
+  <link rel="stylesheet" href="style.css">
   ```
 
 ## 2. `Sass` 和 `Less`
@@ -503,12 +510,12 @@ author:
 
   ```css
   /* bad */
-  .selector {
+  .head {
     width: $default-width/2;
   }
 
   /* good */
-  .selector {
+  .head {
     width: $default-width / 2;
   }
   ```
@@ -517,13 +524,13 @@ author:
 
   ```css
   /* bad */
-  .selector {
+  .head {
     .size(30px,20px);
     .clearfix ();
   }
 
   /* good */
-  .selector {
+  .head {
     .size(30px, 20px);
     .clearfix();
   }
@@ -540,7 +547,7 @@ author:
 
   $color-red: #f0f0f0;
 
-  .selector {
+  .head {
     color: $color-red;
   }
   ```
@@ -582,7 +589,7 @@ author:
 
   ```css
   // 单行注释
-  .selector-a {
+  .box1 {
     padding-left: 15px;
   }
 
@@ -590,7 +597,7 @@ author:
    * 多行注释
    * 多行注释
    */
-  .selector-b {
+  .box2 {
     margin-left: 15px;
   }
   ```
@@ -598,7 +605,7 @@ author:
   编译为 `CSS` 后，双斜杠注释会被删除：
 
   ```css
-  .selector-a {
+  .box1 {
     padding-left: 15px;
   }
 
@@ -606,7 +613,7 @@ author:
    * 多行注释
    * 多行注释
    */
-  .selector-b {
+  .box2 {
     margin-left: 15px;
   }
   ```

@@ -17,7 +17,7 @@ author:
 
 ## 1. 编码风格
  
-![javascript style](./img//JavaScript.svg)
+![javascript style](./img//js.svg)
 
 详细规则如下：
 
@@ -29,14 +29,14 @@ author:
 
   ```javascript
   // bad
-  function foo() {
-  ∙∙∙∙let name;
-  }
+  const obj1 = {
+      name: "as",
+  };
 
   // good
-  function foo() {
-  ∙∙let name;
-  }
+  const obj1 = {
+    name: "as",
+  };
   ```
 
 ### 1.2. 分号
@@ -49,17 +49,17 @@ author:
 
   ```javascript
   // bad - 导致 Uncaught ReferenceError 报错
-  const chenghuai = {}
-  const huaicheng = {}
-  [chenghuai, huaicheng].forEach((jedi) => {
-    jedi.father = 'vader'
+  const ab = {}
+  const ba = {}
+  [ab, ba].forEach((item) => {
+    item.father = 'a'
   })
 
   // good
-  const chenghuai = {};
-  const huaicheng = {};
-  [chenghuai, huaicheng].forEach((jedi) => {
-    jedi.father = 'vader';
+  const ab = {};
+  const ba = {};
+  [ab, ba].forEach((item) => {
+    item.father = 'a';
   });
 
   // bad - 导致 Uncaught ReferenceError 报错
@@ -90,32 +90,18 @@ author:
 
   ```javascript
   // bad
-  const story = [
-      once
-    , upon
-    , aTime
+  const hobby = [
+    "read"
+    , "classical music", 
+    "sports"
   ];
 
   // good
-  const story = [
-    once,
-    upon,
-    aTime,
+  const hobby = [
+    "read", 
+    "classical music", 
+    "sports",
   ];
-
-  // bad
-  const hero = {
-      firstName: 'Ada'
-    , lastName: 'Lovelace'
-    , superPower: 'computers'
-  };
-
-  // good
-  const hero = {
-    firstName: 'Ada',
-    lastName: 'Lovelace',
-    superPower: 'computers',
-  };
   ```
 
 - 1.3.2.【强制】对于逗号分隔的多行结构，始终加上最后一个逗号。`eslint`: [comma-dangle](https://eslint.org/docs/rules/comma-dangle)
@@ -124,81 +110,41 @@ author:
 
   ```diff
   // bad - 没有结尾逗号时，新增一行的 git diff 示例
-  const hero = {
-       firstName: 'Florence',
-  -    lastName: 'Nightingale'
-  +    lastName: 'Nightingale',
-  +    inventorOf: ['coxcomb chart', 'modern nursing']
+  const obj1 = {
+       name: "as",
+  -    age: 24
+  +    age: 24,
+  +    hobby: ["read", "classical music", "sports"]
   };
 
   // good - 有结尾逗号时，新增一行的 git diff 示例
-  const hero = {
-       firstName: 'Florence',
-       lastName: 'Nightingale',
-  +    inventorOf: ['coxcomb chart', 'modern nursing'],
+  const obj1 = {
+       name: "as",
+       age: 24,
+  +    hobby: ["read", "classical music", "sports"],
   };
   ```
 
   ```javascript
   // bad
-  const hero = {
-    firstName: 'Dana',
-    lastName: 'Scully'
+  const address = {
+    province: "HB",
+    city: "LY"
   };
-
-  const heroes = [
-    'Batman',
-    'Superman'
-  ];
-
-  function createHero(
-    firstName,
-    lastName,
-    inventorOf
-  ) {
-    // ...
-  }
-
-  createHero(
-    firstName,
-    lastName,
-    inventorOf
-  );
 
   // good
-  const hero = {
-    firstName: 'Dana',
-    lastName: 'Scully',
+  const address = {
+    province: "HB",
+    city: "LY",
   };
 
-  const heroes = [
-    'Batman',
-    'Superman',
-  ];
-
-  function createHero(
-    firstName,
-    lastName,
-    inventorOf,
-  ) {
-    // ...
-  }
-
-  createHero(
-    firstName,
-    lastName,
-    inventorOf,
-  );
-
   // good - 需注意，使用扩展运算符的元素后面不能加逗号
-  function createHero(
-    firstName,
-    lastName,
-    inventorOf,
-    ...heroArgs
-  ) {
-    // ...
-  }
+  const hobby = [
+    "read", 
+    "classical music", 
+    "sports", 
+    ...newHobby
+  ];
   ```
 
 ### 1.4. 块
@@ -211,14 +157,14 @@ author:
 
   ```javascript
   // bad
-  if (foo)
-    bar();
-    baz(); // 这一行并不在 if 语句里
+  if (typeof obj !== "object" || obj == null) 
+    console.log(obj1);
+    console.log(obj2); // 这一行并不在 if 语句里
 
   // good
-  if (foo) {
-    bar();
-    baz();
+  if (typeof obj !== "object" || obj == null) {
+    console.log(obj1);
+    console.log(obj2);
   }
   ```
 
@@ -226,15 +172,15 @@ author:
 
   ```javascript
   // bad
-  if (foo)
-    return false;
+  if (typeof obj !== "object" || obj == null) 
+    return obj;
 
   // bad - 允许但不推荐
-  if (foo) return false;
+  if (typeof obj !== "object" || obj == null) return obj;
 
   // good
-  if (foo) {
-    return false;
+  if (typeof obj !== "object" || obj == null) {
+    return obj;
   }
   ```
 
@@ -252,18 +198,18 @@ author:
 
   ```javascript
   // bad - else 应与 if 的 } 放在同一行
-  if (foo) {
-    thing1();
+  if (typeof obj !== "object" || obj == null) {
+    console.log(obj1);
   }
-  else
-    thing2();
+  else {
+    console.log(obj2);
   }
 
   // good
-  if (foo) {
-    thing1();
+  if (typeof obj !== "object" || obj == null) {
+    console.log(obj1);
   } else {
-    thing2();
+    console.log(obj2);
   }
   ```
 
@@ -273,23 +219,23 @@ author:
 
   ```javascript
   // good
-  function doNothing() {}
+  function deepClone() {}
   ```
 
   但如果空代码块在多块结构中，仍建议按上一条非空块的 `Egyptian Brackets` 风格换行：
 
   ```javascript
   // bad
-  if (condition) {
+  if (typeof obj !== "object") {
     // …
-  } else if (otherCondition) {} else {
+  } else if (obj == null) {} else {
     // …
   }
 
   // good
-  if (condition) {
+  if (typeof obj !== "object") {
     // …
-  } else if (otherCondition) {
+  } else if (obj == null) {
   } else {
     // …
   }
@@ -312,16 +258,16 @@ author:
 
   ```javascript
   // bad
-  if (condition) {
-    thing1();
+  if (typeof obj !== "object" || obj == null) {
+    console.log(obj1);
   } else {
   }
 
   // good
-  if (condition) {
-    thing1();
+  if (typeof obj !== "object" || obj == null) {
+    console.log(obj1);
   } else {
-    // TODO I haven’t determined what to do.
+    // TODO This section needs to be supplemented later.
   }
   ```
 
@@ -335,25 +281,25 @@ author:
 
   ```javascript
   // bad
-  function test(){
-    console.log('test');
+  function deepClone(obj){
+    return obj;
   }
 
   // good
-  function test() {
-    console.log('test');
+  function deepClone(obj) {
+    return obj;
   }
 
   // bad
-  dog.set('attr',{
-    age: '1 year',
-    breed: 'Bernese Mountain Dog',
+  obj1.set('address',{
+    province: "HB",
+    city: "LY",
   });
 
   // good
-  dog.set('attr', {
-    age: '1 year',
-    breed: 'Bernese Mountain Dog',
+  obj1.set('address', {
+    province: "HB",
+    city: "LY",
   });
   ```
 
@@ -361,13 +307,13 @@ author:
 
   ```javascript
   // bad
-  if(isJedi) {
-    fight ();
+  if(typeof obj !== "object" || obj == null) {
+    return obj;
   }
 
   // good
-  if (isJedi) {
-    fight();
+  if (typeof obj !== "object" || obj == null) {
+    return obj;
   }
   ```
 
@@ -375,13 +321,13 @@ author:
 
   ```javascript
   // bad
-  function fight () {
-    console.log ('Swooosh!');
+  function deepClone (obj) {
+    return obj;
   }
 
   // good
-  function fight() {
-    console.log('Swooosh!');
+  function deepClone(obj) {
+    return obj;
   }
   ```
 
@@ -389,23 +335,13 @@ author:
 
   ```javascript
   // bad
-  function bar( foo ) {
-    return foo;
+  function deepClone( obj ) {
+    return obj;
   }
 
   // good
-  function bar(foo) {
-    return foo;
-  }
-
-  // bad
-  if ( foo ) {
-    console.log( foo );
-  }
-
-  // good
-  if (foo) {
-    console.log(foo);
+  function deepClone(obj) {
+    return obj;
   }
   ```
 
@@ -413,69 +349,45 @@ author:
 
   ```javascript
   // bad
-  const foo = [ 1, 2, 3 ];
-  console.log(foo[ 0 ]);
+  const hobby = [ "read", "classical music", "sports" ];
 
   // good
-  const foo = [1, 2, 3];
-  console.log(foo[0]);
+  const hobby = ["read", "classical music", "sports"];
   ```
 
   大括号内部两侧有空格：
 
   ```javascript
   // bad
-  const foo = {clark: 'kent'};
+  const address = {province: "HB"};
 
   // good
-  const foo = { clark: 'kent' };
+  const address = { province: "HB" };
   ```
 
   运算符两侧有空格，除了一元运算符：
 
   ```javascript
   // bad
-  const x=y+5;
+  let res = obj instanceof Array? []: {};
 
   // good
-  const x = y + 5;
-
-  // bad
-  const isRight = result === 0? false: true;
-
-  // good
-  const isRight = result === 0 ? false : true;
-
-  // bad - 一元运算符与操作对象间不应有空格
-  const x = ! y;
-
-  // good
-  const x = !y;
+  let res = obj instanceof Array ? [] : {};
   ```
 
-  定义对象字面量时， `key`, `value` 之间有且只有一个空格，不允许所谓的「水平对齐」：
+  定义对象字面量时， 冒号与 `value` 之间有且只有一个空格，不允许所谓的「水平对齐」：
 
   ```javascript
   // bad
-  {
-    a:            'short',
-    looooongname: 'long',
-  }
+  const address = { province:   "HB" };
 
   // bad
-  {
-    a           : 'short',
-    looooongname: 'long',
-  }
+  const address = { province  : "HB" };
+
 
   // good
-  {
-    a: 'short',
-    looooongname: 'long',
-  }
+  const address = { province: "HB" };
   ```
-
-
 
 ### 1.6. 空行
 
@@ -487,52 +399,47 @@ author:
 
   ```javascript
   // bad - 文件末尾未保留换行符
-  import { foo } from './Foo';
+  import { deepClone } from './DeepClone';
   // ...
-  export default foo;
+  export default deepClone;
 
   // bad - 文件末尾保留了2个换行符
-  import { foo } from './Foo';
+  import { deepClone } from './DeepClone';
   // ...
-  export default foo;↵
+  export default deepClone;↵
   ↵
 
   // good
-  import { foo } from './Foo';
+  import { deepClone } from './DeepClone';
   // ...
-  export default foo;↵
+  export default deepClone;↵
   ```
-
 
 - 1.6.2.【强制】块的开始和结束不能是空行。`eslint`: [padded-blocks](https://eslint.org/docs/rules/padded-blocks)
 
   ```javascript
   // bad
-  function bar() {
-
-    console.log(foo);
+  function deepClone(obj) {
+    
+    return res;
 
   }
 
   // good
-  function bar() {
-    console.log(foo);
+  function deepClone(obj) {
+    return res;
   }
 
   // bad
-  if (baz) {
+  if (typeof obj !== "object" || obj == null) {
 
-    console.log(qux);
-  } else {
-    console.log(foo);
+    return obj;
 
   }
 
   // good
-  if (baz) {
-    console.log(qux);
-  } else {
-    console.log(foo);
+  if (typeof obj !== "object" || obj == null) {
+    return obj;
   }
   ```
 
@@ -540,37 +447,17 @@ author:
 
   ```javascript
   // bad
-  if (foo) {
-    return bar;
+  for (let key in obj) {
+    res[key] = deepClone(obj[key]);
   }
-  return baz;
+  return res;
 
   // good
-  if (foo) {
-    return bar;
+  for (let key in obj) {
+    res[key] = deepClone(obj[key]);
   }
 
-  return baz;
-
-  // bad
-  const obj = {
-    foo() {
-    },
-    bar() {
-    },
-  };
-  return obj;
-
-  // good
-  const obj = {
-    foo() {
-    },
-
-    bar() {
-    },
-  };
-
-  return obj;
+  return res;
   ```
 
 ### 1.7. 最大字符数和最大行数
@@ -586,23 +473,23 @@ author:
 
   ```javascript
   // bad
-  const foo = jsonData && jsonData.foo && jsonData.foo.bar && jsonData.foo.bar.baz && jsonData.foo.bar.baz.quux && jsonData.foo.bar.baz.quux.xyzzy;
+  const temp = fileData && fileData.temp && fileData.temp.contain && fileData.temp.contain.phoneInfo && fileData.temp.contain.phoneInfo.head && fileData.temp.contain.phoneInfo.head.before;
 
   // good
-  const foo = jsonData
-    && jsonData.foo
-    && jsonData.foo.bar
-    && jsonData.foo.bar.baz
-    && jsonData.foo.bar.baz.quux
-    && jsonData.foo.bar.baz.quux.xyzzy;
+  const temp = fileData
+    && fileData.temp
+    && fileData.temp.contain
+    && fileData.temp.contain.phoneInfo
+    && fileData.temp.contain.phoneInfo.head
+    && fileData.temp.contain.phoneInfo.head.before;
 
   // bad
-  $.ajax({ method: 'POST', url: 'https://foo.com/', data: { name: 'John' } }).done(() => console.log('Congratulations!')).fail(() => console.log('You have failed this city.'));
+  $.ajax({ method: 'POST', url: 'https://temp.com/', data: { name: 'Tom' } }).done(() => console.log('Congratulations!')).fail(() => console.log('You have failed this city.'));
 
   // good
   $.ajax({
     method: 'POST',
-    url: 'https://foo.com/',
+    url: 'https://temp.com/',
     data: { name: 'John' },
   })
     .done(() => console.log('Congratulations!'))
@@ -629,22 +516,22 @@ author:
 
   ```javascript
   // bad
-  var foo = 'foo';
-  var bar;
+  var hobby = ["read", "classical music", "sports"];
+  var address = { province: "HB" };
 
   // good
-  const foo = 'foo';
-  let bar;
+  const hobby = ["read", "classical music", "sports"];
+  let address = { province: "HB" };
   ```
 
   更不要什么都不用（这将产生全局变量，从而污染全局命名空间）：
 
   ```javascript
   // bad
-  foo = 'foo';
+  address = { province: "HB" };
 
   // good
-  const foo = 'foo';
+  const address = { province: "HB" };
   ```
 
 - 2.1.2.【强制】正确地使用 `const` 和 `let`。`eslint`: [prefer-const](https://eslint.org/docs/rules/prefer-const)
@@ -653,15 +540,15 @@ author:
 
   ```javascript
   // bad - 声明后未发生重新赋值，应使用 const
-  let flag = true;
-  if (flag) {
+  let checked = true;
+  if (checked) {
     console.log(flag);
   }
 
   // good - 声明后发生重新赋值，let 使用正确
-  let flag = true;
-  if (flag) {
-    flag = false;
+  let checked = true;
+  if (checked) {
+    checked = false;
   }
   ```
 
@@ -669,16 +556,16 @@ author:
 
   ```javascript
   // bad
-  let arr = [];
-  let obj = {};
-  arr[0] = 'foo';
-  obj.name = 'bar';
+  let hobby = [];
+  let address = { province: "HB" };
+  hobby[1] = "read";
+  address.province = "HB";
 
   // good
-  const arr = [];
-  const obj = {};
-  arr.push('foo');
-  obj.name = 'bar';
+  const hobby = [];
+  const address = { province: "HB" };
+  hobby[1] = "read";
+  address.province = "HB";
   ```
 
 - 2.1.3.【强制】一条声明语句声明一个变量。`eslint`: [one-var](https://eslint.org/docs/rules/one-var)
@@ -687,12 +574,12 @@ author:
 
   ```javascript
   // bad
-  const foo = 1,
-        bar = 2;
+  const a = 1,
+        b = 2;
 
   // good
-  const foo = 1;
-  const bar = 2;
+  const a = 1;
+  const b = 2;
   ```
 
 - 2.1.4.【强制】声明的变量必须被使用。`eslint`: [no-unused-vars](https://eslint.org/docs/rules/no-unused-vars)
@@ -701,30 +588,27 @@ author:
 
   ```javascript
   // bad - 未使用变量 foo
-  const foo = 1;
+  const obj1 = {};
 
   // good
-  const foo = 1;
-  doSomethingWith(foo);
+  const obj1 = {};
+  deepClone(obj1);
 
   // bad - 只修改变量不认为是被使用
-  let bar = 1;
-  bar = 2;
-  bar += 1;
+  let b = 1;
+  b++;
 
   // good
-  let bar = 1;
-  bar = 2;
-  bar += 1;
-  doSomethingWith(bar);
+  let b = 1;
+  addNum(b);
 
   // bad - 未使用参数 y
-  function getX(x, y) {
+  function fun(x, y) {
     return x;
   }
 
   // good
-  function getXPlusY(x, y) {
+  function fun(x, y) {
     return x + y;
   }
   ```
@@ -735,24 +619,24 @@ author:
 
   ```javascript
   // bad
-  console.log(foo); // => undefined
-  var foo = 'foo';
+  console.log(a); // => undefined
+  var a = 1;
 
   // good
-  var foo = 'foo';
-  console.log(foo); // => foo
+  var a = 1;
+  console.log(a); // => 1
   ```
 
   在 `ES6` 中，由于 `const` 和 `let` 没有声明提升作用，如果在声明前就使用变量，会直接报错：
 
   ```javascript
   // bad
-  console.log(foo); // => Uncaught ReferenceError: foo is not defined
-  const foo = 'foo';
+  console.log(a); // => Uncaught ReferenceError: a is not defined
+  const a = 1;
 
   // good
-  const foo = 'foo';
-  console.log(foo); // => foo
+  const a = 1;
+  var a = 1; // => 1
   ```
 
 - 2.1.6.【参考】哪里使用，哪里声明。
@@ -763,33 +647,24 @@ author:
 
   ```javascript
   // bad - 如果权限校验（checkUserPermission）失败，fetchData 是不必要的
-  function getData(id) {
-    const data = fetchData(id);
+  function deepClone(obj) {
+    let res = obj instanceof Array ? [] : {};
 
-    if (!checkUserPermission()) {
+    if (typeof obj !== "object" || obj == null) {
       return false;
     }
-
-    if (data.foo === 'bar') {
-      // ...
-    }
-
-    return data;
+    
+    return res;
   }
 
   // good
-  function getData(id) {
-    if (!checkUserPermission()) {
+  function deepClone(obj) {
+    if (typeof obj !== "object" || obj == null) {
       return false;
     }
 
-    const data = fetchData(id);
-
-    if (data.foo === 'bar') {
-      // ...
-    }
-
-    return data;
+    let res = obj instanceof Array ? [] : {};
+    return res;
   }
   ```
 
@@ -799,18 +674,18 @@ author:
 
   ```javascript
   // bad
-  const foo = 1;
-  if (someCondition) {
-    const foo = 2;
-    console.log(foo); // => 2
+  const a = 1;
+  if (true) {
+    const a = 2;
+    console.log(a); // => 2
   }
 
   // good
-  const foo = 1;
-  if (someCondition) {
-    const bar = 2;
-    console.log(bar); // => 2
-    console.log(foo); // => 1
+  const a = 1;
+  if (true) {
+    const b = 2;
+    console.log(a); // => 1
+    console.log(b); // => 2
   }
   ```
 
@@ -820,56 +695,56 @@ author:
 
   ```javascript
   // bad
-  var a = 'foo';
-  var a = 'bar';
+  var a = 'cat';
+  var a = 'dog';
   function a() {}
-  console.log(a); // => 'bar'
+  console.log(a); // => 'dog'
 
   // good
-  var a = 'foo';
-  var b = 'bar';
+  var a = 'cat';
+  var b = 'dog';
   function c() {}
-  console.log(a); // => 'foo'
+  console.log(a); // => 'cat'
 
   // bad - arg 已作为函数参数声明
-  function myFunc(arg) {
-    var arg = 'foo';
-    console.log(arg);
+  function fun(a) {
+    var a = 'cat';
+    console.log(a);
   }
-  myFunc('bar'); // => 'foo'
+  fun('dog'); // => 'cat'
 
   // good
-  function myFunc(arg) {
-    var otherName = 'foo';
-    console.log(arg);
+  function fun(a) {
+    var b = 'cat';
+    console.log(a);
   }
-  myFunc('bar'); // => 'bar'
+  fun('dog'); // => 'dog'
   ```
 
   在 `ES6` 中，使用 `const` 或 `let` 重复声明变量会直接报错：
 
   ```javascript
   // bad
-  const a = 'foo';
+  const a = 'cat';
   function a() {} // => Uncaught SyntaxError: Identifier 'a' has already been declared
 
   // good
-  const a = 'foo';
+  const a = 'cat';
   function b() {}
 
   // bad - arg 已作为函数参数声明
-  function myFunc(arg) {
-    const arg = 'foo';
-    console.log(arg);
+  function fun(a) {
+    const a = 'dog';
+    console.log(a);
   }
-  myFunc('bar'); // => Uncaught SyntaxError: Identifier 'arg' has already been declared
+  fun('cat'); // => Uncaught SyntaxError: Identifier 'a' has already been declared
 
   // good
-  function myFunc(arg) {
-    const otherName = 'foo';
-    console.log(arg);
+  function fun(a) {
+    const b = 'dog';
+    console.log(a);
   }
-  myFunc('bar'); // => 'bar'
+  fun('cat'); // => 'cat'
   ```
 
 - 2.1.9.【强制】禁止连续赋值。`eslint`: [no-multi-assign](https://eslint.org/docs/rules/no-multi-assign)
@@ -900,7 +775,7 @@ author:
 
 - 2.1.10.【参考】将 `let` 和 `const` 分别归类。
 
-  将 `let` 和 `const` 归类写在一起，可以提高代码整洁性。此外，如果你想按变量的含义排序分组也是允许的。
+  将 `let` 和 `const` 归类写在一起，可以提高代码整洁性。此外，如果按变量的含义排序分组也是允许的。
 
   ```javascript
   // bad
@@ -920,7 +795,7 @@ author:
 
 ### 2.2. 原始类型
 
-> `JS`的数据类型包括 7 种原始类型（primitive type），即 `Boolean`, `Null`, `Undefined`, `Number`, `String`, `Symbol` (ES6 新定义), `BigInt`（ES11新定义），以及 `Object` 类型，[了解更多](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)。这个章节主要介绍原始类型相关的规约。
+> `JS`的数据类型包括 7 种原始类型（primitive type），即 `Boolean`, `Null`, `Undefined`, `Number`, `String`, `Symbol` (ES6 新定义), `BigInt`（ES11新定义），以及 `Object` 类型。这个章节主要介绍原始类型相关的规约。
 
 - 2.2.1.【强制】不要使用 `new Number/String/Boolean`。`eslint`: [no-new-wrappers](https://eslint.org/docs/rules/no-new-wrappers)
 
@@ -1020,26 +895,26 @@ author:
 
   ```javascript
   // bad
-  if (!!foo) {
+  if (!!res) {
     // ...
   }
 
-  while (!!foo) {
+  while (!!res) {
     // ...
   }
 
-  const a = !!flag ? b : c;
+  const a = !!res ? b : c;
 
   // good
-  if (foo) {
+  if (res) {
     // ...
   }
 
-  while (foo) {
+  while (res) {
     // ...
   }
 
-  const a = flag ? b : c;
+  const a = res ? b : c;
   ```
 
 #### 2.2.5. 字符串
@@ -1048,11 +923,11 @@ author:
 
   ```javascript
   // bad
-  const name = "tod";
-  const name = `tod`; // 模板字符串中应包含变量或换行，否则需用单引号
+  const name = "Tom";
+  const name = `Tom`; // 模板字符串中应包含变量或换行，否则需用单引号
 
   // good
-  const name = 'tod';
+  const name = 'Tom';
   ```
 
 - 2.2.5.2.【推荐】使用模板字符串替代字符串拼接。eslint: [prefer-template](https://eslint.org/docs/rules/prefer-template)
@@ -1061,12 +936,12 @@ author:
 
   ```javascript
   // bad
-  function getDisplayName({ nickName, realName }) {
+  function getName({ nickName, realName }) {
     return nickName + ' (' + realName + ')';
   }
 
   // good
-  function getDisplayName({ nickName, realName }) {
+  function getName({ nickName, realName }) {
     return `${nickName} (${realName})`;
   }
   ```
@@ -1077,11 +952,11 @@ author:
 
   ```javascript
   // bad
-  const foo = '\'this\' \i\s \"quoted\"';
+  const temp = '\'this\' \i\s \"quoted\"';
 
   // good
-  const foo = '\'this\' is "quoted"';
-  const foo = `'this' is "quoted"`;
+  const temp = '\'this\' is "quoted"';
+  const temp = `'this' is "quoted"`;
   ```
 
 ### 2.3. 数组
@@ -1092,12 +967,12 @@ author:
 
   ```javascript
   // bad
-  const a = new Array(1, 2, 3);
-  const b = Array(1, 2, 3);
+  const arr = new Array(1, 2, 3);
+  const array = Array(1, 2, 3);
 
   // good
-  const a = [1, 2, 3];
-  const b = new Array(500); // 构造长度为 500 的空数组
+  const arr = [1, 2, 3];
+  const array = new Array(3); // 构造长度为 500 的空数组
   ```
 
 - 2.3.2.【强制】某些数组方法的回调函数中必须包含 `return` 语句。`eslint`: [array-callback-return](https://eslint.org/docs/rules/array-callback-return)
@@ -1108,17 +983,17 @@ author:
 
   ```javascript
   // 欲将 ['a', 'b', 'c'] 转换成 {a: 0, b: 1, c: 2}
-  const myArray = ['a', 'b', 'c'];
-  const myObj = {};
+  const arr = ['a', 'b', 'c'];
+  const obj = {};
 
   // bad - map 应用于构建一个新数组，单纯想遍历数组应使用 forEach
-  myArray.map((item, index) => {
-    myObj[item] = index;
+  arr.map((item, index) => {
+    obj[item] = index;
   });
 
   // good
-  myArray.forEach((item, index) => {
-    myObj[item] = index;
+  arr.forEach((item, index) => {
+    obj[item] = index;
   });
   ```
 
@@ -1126,17 +1001,17 @@ author:
 
   ```javascript
   // 欲将 ['a', 'b', 'c'] 转换成 {a: 0, b: 1, c: 2}
-  const myArray = ['a', 'b', 'c'];
+  const arr = ['a', 'b', 'c'];
 
   // bad => Uncaught TypeError: Cannot set property 'b' of undefined
-  const myObj = myArray.reduce((memo, item, index) => {
-    memo[item] = index;
+  const obj = arr.reduce((newArr, item, index) => {
+    newArr[item] = index;
   }, {});
 
   // good
-  const myObj = myArray.reduce((memo, item, index) => {
-    memo[item] = index;
-    return memo;
+  const obj = arr.reduce((newArr, item, index) => {
+    newArr[item] = index;
+    return newArr;
   }, {});
   ```
 
@@ -1254,21 +1129,21 @@ author:
   `ES6` 提供了对象属性和方法的简写语法，可以使代码更加简洁：
 
   ```javascript
-  const value = 'foo';
+  const value = 'a';
 
   // bad
-  const atom = {
+  const obj = {
     value: value,
     addValue: function (value) {
-      return value + ' added';
+      return value + ' b';
     },
   };
 
   // good
-  const atom = {
+  const obj = {
     value,
     addValue(value) {
-      return value + ' added';
+      return value + ' b';
     },
   };
   ```
@@ -1309,16 +1184,16 @@ author:
   ```javascript
   // bad
   const bad = {
-    'foo': 3,
-    'bar': 4,
+    'name': 'Tom',
+    'age': 24,
     'data-blah': 5,
     'one two': 12,
   };
 
   // good
   const good = {
-    foo: 3,
-    bar: 4,
+    name: 'Tom',
+    age: 24,
     'data-blah': 5,
     'one two': 12,
   };
@@ -1408,15 +1283,15 @@ author:
   // bad
   const obj = {
     id: 1,
-    name: 'tod',
+    name: 'Tom',
   };
-  obj[getKey('foo')] = 'foo';
+  obj[getKey('value')] = 'value';
 
   // good
   const obj = {
     id: 1,
-    name: 'tod',
-    [getKey('foo')]: 'foo',
+    name: 'Tom',
+    [getKey('value')]: 'value',
   };
   ```
 
@@ -1496,22 +1371,22 @@ author:
 
   ```javascript
   // bad
-  function foo() {
+  function fun() {
     // ...
   }
 
   // good
-  const foo = () => {
+  const fun = () => {
     // ...
   };
 
-  const foo = function () {
+  const fun = function () {
     // ...
   };
 
   // 有些规范提出，应该给函数表达式起一个不同于被赋值变量名的名字，以达到易于调试、查看错误堆栈等目的
   // 事实上，代码在目前浏览器中或者经过 Babel 转码后，匿名函数表达式也能够方便地查看堆栈。所以除非你出于某些目的想给函数起一个不同于被赋值变量的名字，否则直接使用匿名函数表达式
-  const foo = function foo_more_descriptive_name() {
+  const fun = function fun_more_descriptive_name() {
     // ...
   };
   ```
@@ -1617,12 +1492,12 @@ author:
 
   ```javascript
   // bad
-  function foo(name, options, arguments) {
+  function fun(name, options, arguments) {
     // ...
   }
 
   // good
-  function foo(name, options, args) {
+  function fun(name, options, args) {
     // ...
   }
   ```
@@ -1635,17 +1510,17 @@ author:
 
   ```javascript
   // bad
-  function foo(a, b) {
-    const args = Array.prototype.slice.call(arguments, foo.length);
+  function fun(a, b) {
+    const args = Array.prototype.slice.call(arguments, fun.length);
     console.log(args);
   }
-  foo(1, 2, 3, 4); // => [3, 4]
+  fun(1, 2, 3, 4); // => [3, 4]
 
   // good
-  function foo(a, b, ...args) {
+  function fun(a, b, ...args) {
     console.log(args);
   }
-  foo(1, 2, 3, 4); // => [3, 4]
+  fun(1, 2, 3, 4); // => [3, 4]
   ```
 
 - 2.5.8.【推荐】使用默认参数语法。
@@ -1710,14 +1585,14 @@ author:
 
   ```javascript
   // bad
-  function foo(bar, baz) {
+  function fun(bar, baz) {
     if (!baz) {
       bar = 1;
     }
   }
 
   // good
-  function foo(bar, baz) {
+  function fun(bar, baz) {
     let qux = bar;
     if (!baz) {
       qux = 1;
@@ -1737,13 +1612,13 @@ author:
 
 - 2.5.12.【参考】函数的复杂度不应过高。`eslint`: [complexity](https://eslint.org/docs/rules/complexity)
 
-  过高的复杂度意味着代码难以维护和测试。我们推荐函数的复杂度不要超过以下阈值：
+  过高的复杂度意味着代码难以维护和测试。推荐函数的复杂度不要超过以下阈值：
 
   - 圈复杂度不超过 **10**
   - 认知复杂度不超过 **15**
 
 - 2.5.13.【参考】函数的参数不应过多。`eslint`: [max-params](https://eslint.org/docs/rules/max-params)
-  如果函数的参数过多，将不利于函数的维护和调用。这时你需要考虑是否函数做了太多的事情，是否有必要对其进行拆分。
+  如果函数的参数过多，将不利于函数的维护和调用。这时需要考虑是否函数做了太多的事情，是否有必要对其进行拆分。
 
   如果必须使用过多的参数，可以考虑用对象代替参数列表：
 
@@ -1767,12 +1642,12 @@ author:
 
   ```javascript
   // bad
-  function* foo() {
+  function* fun() {
     return 10;
   }
 
   // good
-  function* foo() {
+  function* fun() {
     yield 5;
     return 10;
   }
@@ -1940,7 +1815,7 @@ author:
   // bad - this 必须在调用 super 后使用
   class Child extends Parent {
     constructor() {
-      this.name = 'foo';
+      this.name = 'child';
       super();
     }
   }
@@ -1949,7 +1824,7 @@ author:
   class Child extends Parent {
     constructor (value) {
       super(value);
-      this.name = 'foo';
+      this.name = 'child';
     }
   }
   ```
@@ -1960,16 +1835,16 @@ author:
 
   ```javascript
   // bad
-  class Foo {
-    bar() { console.log('bar'); }
-    bar() { console.log('baz'); }
+  class Fun {
+    say() { console.log('Hi'); }
+    say() { console.log('sing'); }
   }
-  const foo = new Foo();
-  foo.bar(); // => baz
+  const fun = new Fun();
+  fun.say(); // => sing
 
   // good
-  class Foo {
-    bar() { console.log('bar'); }
+  class Fun {
+    say() { console.log('Hi'); }
   }
   ```
 
@@ -2010,32 +1885,32 @@ author:
 
   ```javascript
   // bad
-  import foo from 'foo';
-  foo.init();
+  import add from 'add';
+  add.init();
 
-  import bar from 'bar';
-  bar.init();
+  import modal from 'modal';
+  modal.init();
 
   // good
-  import foo from 'foo';
-  import bar from 'bar';
+  import add from 'add';
+  import modal from 'modal';
 
-  foo.init();
-  bar.init();
+  add.init();
+  modal.init();
   ```
 
 - 2.7.4.【强制】禁止 `default import` 的名字跟文件内的其他 `export` 命名相同。`eslint`: [import/no-named-as-default](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-named-as-default.md)
 
   ```javascript
-  // foo.js
-  export default 'foo';
-  export const bar = 'bar';
+  // modal.js
+  export default 'modal';
+  export const add = 'add';
 
   // bad
-  import bar from './foo.js';
+  import add from './modal.js';
 
   // good
-  import foo from './foo.js';
+  import modal from './modal.js';
   ```
 
 - 2.7.5.【强制】禁止引用自身。`eslint`: [import/no-self-import](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-self-import.md)
@@ -2046,29 +1921,29 @@ author:
 
   ```javascript
   // foo.js
-  export default 'foo';
-  export const bar = 'bar';
+  export default 'modal';
+  export const add = 'add';
 
   // bad
-  import foo from './foo.js';
-  const bar = foo.bar; // or
-  const { bar } = foo;
+  import modal from './modal.js';
+  const add = modal.add; // or
+  const { add } = modal;
 
   // good
-  import foo, { bar } from './foo.js';
+  import modal, { add } from './modal.js';
   ```
 
 - 2.7.8.【推荐】在模块导入之后保留一个空行。`eslint`: [import/newline-after-import](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/newline-after-import.md)
 
   ```javascript
   // bad
-  import foo from './foo.js';
-  const FOO = 'FOO'
+  import add from './add.js';
+  const ADD = 'ADD'
 
   // good
-  import foo from './foo.js';
+  import add from './add.js';
 
-  const FOO = 'FOO'
+  const ADD = 'ADD'
   ```
 
 - 2.7.9.【参考】import 语句的排序。`eslint`: [import/order](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/order.md)
@@ -2080,13 +1955,13 @@ author:
 
   ```javascript
   // bad
-  import foo from 'components/foo';
+  import add from 'components/add';
   import './index.scss';
   import React from 'react';
 
   // good
   import React from 'react';
-  import foo from 'components/foo';
+  import add from 'components/add';
   import './index.scss';
   ```
 
@@ -2096,10 +1971,10 @@ author:
 
   ```javascript
   // bad
-  export function foo() {}
+  export function fun() {}
 
   // good
-  export default function foo() {}
+  export default function fun() {}
   ```
 
 - 2.7.11.【参考】不要在 `import` 时直接 `export。`
@@ -2117,7 +1992,7 @@ author:
   ```
 
 
-- 2.7.12.【参考】模块开发者选择EMS和CJS时，需要判断运行时环境：如果你的模块是只面向浏览器的则选择ESM；如果你的模块是只面向Node.js的则选择CJS，并且确定遵循[CJS命名空间规则](https://nodejs.org/api/esm.html#esm_commonjs_namespaces)；如果你的模块是2者都要兼容的，则ESM和CJS都要支持。
+- 2.7.12.【参考】模块开发者选择EMS和CJS时，需要判断运行时环境：如果你的模块是只面向浏览器的则选择ESM；如果你的模块是只面向Node.js的则选择CJS，并且确定遵循[CJS命名空间规则](https://nodejs.org/api/esm.html#esm_commonjs_namespaces)；如果你的模块是两者都要兼容的，则ESM和CJS都要支持。
 
   Node.js的模块，历史上Node.js遵循的是CommonJS，因此ES6 Module会有比较严重的兼容性问题。暂时没有特别好的解法，只能在Node.js中跟进运行时环境，判断使用模块标准。[讨论issue](https://github.com/nodejs/node/issues/33954)
 
@@ -2127,18 +2002,18 @@ author:
 
   非严格相等运算符（`==` 和 `!=`）会在比较前将被比较值转换为相同类型，对于不熟悉 JS 语言特性的人来说，这可能造成不小的隐患。[了解更多](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
 
-  因此，一般情况下我们应该使用严格比较运算符（ `===` 和 `!==`）进行比较。如果要比较的两个值类型不同，应该显性地将其转换成相同类型再进行严格比较，而不是依赖于 `==` 和 `!=` 的隐式类型转换。
+  因此，一般情况下应该使用严格比较运算符（ `===` 和 `!==`）进行比较。如果要比较的两个值类型不同，应该显性地将其转换成相同类型再进行严格比较，而不是依赖于 `==` 和 `!=` 的隐式类型转换。
 
   ```javascript
-  const id = '83949';
+  const id = '123';
 
   // bad - 为了兼容 id 可能是字符串的情况，而有意使用 == 与数字比较
-  if (id == 83949) {
+  if (id == 123) {
     // do something
   }
 
   // good - 如果 id 可能是字符串，应该先将其进行类型转换，再使用 === 进行比较
-  if (Number(id) === 83949) {
+  if (Number(id) === 123) {
     // do something
   }
   ```
@@ -2168,10 +2043,10 @@ author:
 
   ```javascript
   // bad
-  const foo = void 0;
+  const data = void 0;
 
   // good
-  const foo = undefined;
+  const data = undefined;
   ```
 
 - 2.8.4.【强制】避免嵌套的三元表达式。`eslint`: [no-nested-ternary](https://eslint.org/docs/rules/no-nested-ternary)
@@ -2180,25 +2055,25 @@ author:
 
   ```javascript
   // bad
-  const foo = bar ? baz : qux === quxx ? bing : bam;
+  const checked = all ? false : single === true ? true : false;
 
   // good
-  const qu = qux === quxx ? bing : bam;
-  const foo = bar ? baz : qu;
+  const temp = single === true ? true : false;
+  const checked = all ? false : temp;
   ```
 
 - 2.8.5.【强制】避免不必要的三元表达式。`eslint`: [no-unneeded-ternary](https://eslint.org/docs/rules/no-unneeded-ternary)
 
   ```javascript
   // bad
-  const foo = a ? a : b;
-  const bar = c ? true : false;
-  const baz = c ? false : true;
+  const read = a ? a : b;
+  const sing = c ? true : false;
+  const run = c ? false : true;
 
   // good
-  const foo = a || b;
-  const bar = !!c;
-  const baz = !c;
+  const read = a || b;
+  const sing = !!c;
+  const run = !c;
   ```
 
 - 2.8.6.【强制】混合使用多种操作符时，用小括号包裹分组。`eslint`: [no-mixed-operators](https://eslint.org/docs/rules/no-mixed-operators)
@@ -2207,16 +2082,16 @@ author:
 
   ```javascript
   // bad
-  const foo = a && b < 0 || c > 0 || d + 1 === 0;
+  const flag = a && b < 0 || c > 0 || d + 1 === 0;
 
   // good
-  const foo = (a && b < 0) || c > 0 || (d + 1 === 0);
+  const flag = (a && b < 0) || c > 0 || (d + 1 === 0);
 
   // bad
-  const bar = a ** b - 5 % d;
+  const num = a ** b - 5 % d;
 
   // good
-  const bar = (a ** b) - (5 % d);
+  const num = (a ** b) - (5 % d);
 
   // bad - 有人可能会误以为执行顺序是 (a || b) && c
   if (a || b && c) {
@@ -2229,7 +2104,7 @@ author:
   }
 
   // good - 四则运算可以不用小括号包裹
-  const bar = a + b / c * d;
+  const num = a + b / c * d;
   ```
 
 ### 2.9. 控制语句
@@ -2238,17 +2113,17 @@ author:
 
   ```javascript
   // bad
-  switch(foo) {
+  switch(flag) {
     case 1:
       doSomething();
     case 2:
       doSomethingElse();
     default:
-      doSomething();
+      doSomethingOther();
   }
 
   // good
-  switch(foo) {
+  switch(flag) {
     case 1:
       doSomething();
       break;
@@ -2256,7 +2131,7 @@ author:
       doSomethingElse();
       break;
     default:
-      doSomething();
+      doSomethingOther();
   }
   ```
 
@@ -2266,28 +2141,28 @@ author:
 
   ```javascript
   // bad
-  let foo;
-  switch (bar) {
+  let flag;
+  switch (num) {
     case 1:
-      foo = 2;
+      flag = 2;
       break;
   }
 
   // good
-  let foo;
-  switch (bar) {
+  let flag;
+  switch (num) {
     case 1:
-      foo = 2;
+      flag = 2;
       break;
     default:
-      foo = 0;
+      flag = 0;
   }
 
   // good - 如果有意省略 default，请在 switch 语句末尾用 `// no default` 注释指明
-  let foo = 0;
-  switch (bar) {
+  let flag = 0;
+  switch (num) {
     case 1:
-      foo = 2;
+      flag = 2;
       break;
     // no default
   }
@@ -2299,21 +2174,21 @@ author:
 
   ```javascript
   // bad
-  let foo;
-  switch (bar) {
+  let flag;
+  switch (num) {
     case 1:
-      foo = 2;
+      flag = 2;
       break;
     default:
-      foo = 0;
+      flag = 0;
   }
 
   // good
-  let foo;
-  if (bar === 1) {
-    foo = 2;
+  let flag;
+  if (num === 1) {
+    flag = 2;
   } else {
-    foo = 0;
+    flag = 0;
   }
   ```
 
@@ -2379,7 +2254,7 @@ author:
 
   ```javascript
   // bad
-  function foo() {
+  function fun() {
     if (x) {
       return x;
     } else {
@@ -2388,7 +2263,7 @@ author:
   }
 
   // good
-  function foo() {
+  function fun() {
     if (x) {
       return x;
     }
@@ -2462,10 +2337,10 @@ author:
 
   ```javascript
   // bad
-  alert('Oops!');
+  alert('error!');
 
   // good - 使用自定义的 Alert 组件
-  Alert('Oops!');
+  Alert('error!');
   ```
 
 - 2.10.4.【推荐】生产环境禁止使用 `console`。eslint: [no-console](https://eslint.org/docs/rules/no-console)
@@ -2474,7 +2349,7 @@ author:
 
   ```javascript
   // bad
-  console.log('Some debug messages..');
+  console.log('Here is prompt information.');
 
   // good - 如果你非要使用 console 语句，可以考虑自己进行封装以确保不要在生产环境暴露调试信息
   const utils = {
@@ -2485,7 +2360,7 @@ author:
     },
   };
 
-  utils.log('Some debug messages..');
+  utils.log('Here is prompt information.');
   ```
 
 - 2.10.5.【强制】禁止对原生对象或只读的全局对象进行赋值。`eslint`: [no-global-assign](https://eslint.org/docs/rules/no-global-assign)
@@ -2521,39 +2396,41 @@ author:
 
   ```javascript
   // bad - 注释行上方需要一个空行
-  function getType() {
-    console.log('fetching type...');
-    // set the default type to 'no type'
-    const type = this.type || 'no type';
-
-    return type;
+  function deepClone(obj) {
+    let res = obj instanceof Array ? [] : {};
+    // traverse
+    for (let key in obj) {
+      res[key] = deepClone(obj[key]);
+    }
+    return res;
   }
 
   // good
-  function getType() {
-    console.log('fetching type...');
+  function deepClone(obj) {
+    let res = obj instanceof Array ? [] : {};
 
-    // set the default type to 'no type'
-    const type = this.type || 'no type';
-
-    return type;
+    // traverse
+    for (let key in obj) {
+      res[key] = deepClone(obj[key]);
+    }
+    return res;
   }
 
   // bad - 注释行上面是一个块的顶部时不需要空行
-  function getType() {
+  function deepClone(obj) {
 
-    // set the default type to 'no type'
-    const type = this.type || 'no type';
-
-    return type;
+    // Determine the type
+    if (typeof obj !== "object" || obj == null) {
+      return obj;
+    }
   }
 
   // good
-  function getType() {
-    // set the default type to 'no type'
-    const type = this.type || 'no type';
-
-    return type;
+  function deepClone(obj) {
+    // Determine the type
+    if (typeof obj !== "object" || obj == null) {
+      return obj;
+    }
   }
   ```
 
@@ -2563,10 +2440,10 @@ author:
   // bad
   // make() returns a new element
   // based on the passed in tag name
-  function make(tag) {
+  function deepClone(obj) {
     // ...
 
-    return element;
+    return res;
   }
 
   // good
@@ -2574,10 +2451,10 @@ author:
    * make() returns a new element
    * based on the passed-in tag name
    */
-  function make(tag) {
+  function deepClone(obj) {
     // ...
 
-    return element;
+    return res;
   }
   ```
 
@@ -2599,10 +2476,10 @@ author:
    *make() returns a new element
    *based on the passed-in tag name
    */
-  function make(tag) {
+  function deepClone(obj) {
     // ...
 
-    return element;
+    return res;
   }
 
   // good
@@ -2610,10 +2487,10 @@ author:
    * make() returns a new element
    * based on the passed-in tag name
    */
-  function make(tag) {
+  function deepClone(obj) {
     // ...
 
-    return element;
+    return res;
   }
   ```
 
@@ -2689,14 +2566,14 @@ author:
 
   ```javascript
   // bad
-  const this_is_my_string = 'foo';
-  const this_is_my_object = {};
-  function this_is_my_function() {}
+  const page_size = 5;
+  const list_data = {};
+  function get_list() {}
 
   // good
-  const thisIsMyString = 'foo';
-  const thisIsMyObject = {};
-  function thisIsMyFunction() {}
+  const pageSize = 5;
+  const listData = {};
+  function getList() {}
   ```
 
 - 4.3.【强制】使用大驼峰（`PascalCase`）命名类和构造函数。`eslint`: [new-cap](https://eslint.org/docs/rules/new-cap)
@@ -2708,7 +2585,7 @@ author:
   }
 
   const bad = new user({
-    name: 'nope',
+    name: 'Tom',
   });
 
   // good
@@ -2719,7 +2596,7 @@ author:
   }
 
   const good = new User({
-    name: 'yup',
+    name: 'Tom',
   });
   ```
 
@@ -2762,23 +2639,23 @@ author:
   使用小驼峰（`camelCase`）命名 `export` 的函数：
 
   ```javascript
-  function makeStyleGuide() {
+  function onClickBtn() {
     // ...
   }
 
-  export default makeStyleGuide;
+  export default onClickBtn;
   ```
 
   使用大驼峰（`PascalCase`）命名 `export` 的 class、函数库、字面量对象：
 
   ```javascript
-  const AnObject = {
-    foo: {
+  const AccountList = {
+    accounts: {
       // ...
     },
   };
 
-  export default AnObject;
+  export default AccountList;
   ```
 
 - 4.6.【参考】命名不要以下划线开头或结尾。`eslint`: [no-underscore-dangle](https://eslint.org/docs/rules/no-underscore-dangle)
@@ -2787,12 +2664,12 @@ author:
 
   ```javascript
   // bad
-  this.__firstName__ = 'Panda';
-  this.firstName_ = 'Panda';
-  this._firstName = 'Panda';
+  this.__firstName__ = 'Tom';
+  this.firstName_ = 'Tom';
+  this._firstName = 'Tom';
 
   // good
-  this.firstName = 'Panda';
+  this.firstName = 'Tom';
   ```
 
 ## 参考资料
