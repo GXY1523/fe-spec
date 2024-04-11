@@ -1,6 +1,6 @@
 {
   "name": "xy-eslint-plugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "自定义eslint插件",
   "scripts": {
     "test": "jest",
