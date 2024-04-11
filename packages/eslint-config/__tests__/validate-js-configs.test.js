@@ -8,7 +8,7 @@ function isObject(obj) {
 }
 
 describe('Validate JS configs', () => {
-  it('Validate xy-eslint-config', async () => {
+  it('Validate ', async () => {
     const configPath = './index.js';
     const filePath = path.join(__dirname, './fixtures/index.js');
 
@@ -29,7 +29,7 @@ describe('Validate JS configs', () => {
     assert.notEqual(sumBy(results, 'warningCount'), 0);
   });
 
-  it('Validate xy-eslint-config/es5', async () => {
+  it('Validate /es5', async () => {
     const configPath = './es5.js';
     const filePath = path.join(__dirname, './fixtures/es5.js');
 
@@ -57,7 +57,7 @@ describe('Validate JS configs', () => {
     assert.notEqual(errorReportedByReactPlugin.length, 0);
   });
 
-  it('Validate xy-eslint-config/vue', async () => {
+  it('Validate /vue', async () => {
     const configPath = './vue.js';
     const filePath = path.join(__dirname, './fixtures/vue.vue');
 
@@ -85,7 +85,7 @@ describe('Validate JS configs', () => {
     assert.notEqual(errorReportedByReactPlugin.length, 0);
   });
 
-  it('Validate xy-eslint-config/essential', async () => {
+  it('Validate /essential', async () => {
     const configPath = './essential/index.js';
     const filePath = path.join(__dirname, './fixtures/index.js');
 
@@ -121,7 +121,7 @@ describe('Validate JS configs', () => {
     assert.equal(commaSpacingErrors[0].severity, 1);
   });
 
-  it('Validate xy-eslint-config/essential/es5', async () => {
+  it('Validate /essential/es5', async () => {
     const configPath = './essential/es5.js';
     const filePath = path.join(__dirname, './fixtures/es5.js');
 
@@ -154,7 +154,7 @@ describe('Validate JS configs', () => {
     assert.equal(errorReportedByReactPluginBlackList.length, 0);
   });
 
-  it('Validate xy-eslint-config/essential/react', async () => {
+  it('Validate /essential/react', async () => {
     const configPath = './essential/react.js';
     const filePath = path.join(__dirname, './fixtures/react.jsx');
 
@@ -187,7 +187,7 @@ describe('Validate JS configs', () => {
     assert.equal(errorReportedByReactPluginBlackList.length, 0);
   });
 
-  it('Validate xy-eslint-config/essential/vue', async () => {
+  it('Validate /essential/vue', async () => {
     const configPath = './essential/vue.js';
     const filePath = path.join(__dirname, './fixtures/vue.vue');
 
@@ -221,7 +221,7 @@ describe('Validate JS configs', () => {
     assert.equal(errorReportedByReactPluginBlackList.length, 0);
   });
 
-  it('Validate xy-eslint-config/node', async () => {
+  it('Validate /node', async () => {
     const configPath = './node.js';
     const filePath = path.join(__dirname, './fixtures/node.js');
 

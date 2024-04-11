@@ -24,7 +24,7 @@ $ npm install xy-eslint-plugin eslint --save-dev
 ```js
 // .eslintrc.js
 module.exports = {
-  plugin: ['xy-eslint-config'],
+  plugin: [''],
   rules: {
     'xy-eslint-plugin/no-secret-info': 'error',
   },

@@ -1,5 +1,5 @@
 {
-  "name": "xy-eslint-config",
+  "name": "",
   "version": "0.0.2",
   "description": "JavaScript TypeScript Node 规范",
   "scripts": {
@@ -44,5 +44,6 @@
     "mocha": "^8.2.1",
     "typescript": "^4.1.2",
     "vue-eslint-parser": "^7.3.0"
-  }
+  },
+  "gitHead": "fad2abfe92fa926b0ac4e53cee9863c1aa43c7a3"
 }
