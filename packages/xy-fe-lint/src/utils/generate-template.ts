@@ -1,13 +1,13 @@
-import fs from 'fs-extra';
 import path from 'path';
-import glob from 'glob';
+import fs from 'fs-extra';
 import _ from 'lodash';
+import glob from 'glob';
 import ejs from 'ejs';
 import {
   ESLINT_IGNORE_PATTERN,
-  MARKDOWN_LINT_IGNORE_PATTERN,
   STYLELINT_FILE_EXT,
   STYLELINT_IGNORE_PATTERN,
+  MARKDOWN_LINT_IGNORE_PATTERN,
 } from './constants';
 
 /**

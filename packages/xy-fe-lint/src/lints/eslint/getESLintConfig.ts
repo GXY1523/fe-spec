@@ -1,9 +1,9 @@
 import { ESLint } from 'eslint';
-import type { Config, PKG, ScanOptions } from '../../types';
-import { ESLINT_FILE_EXT } from '../../utils/constants';
+import fs from 'fs-extra';
 import glob from 'glob';
 import path from 'path';
-import fs from 'fs-extra';
+import type { Config, PKG, ScanOptions } from '../../types';
+import { ESLINT_FILE_EXT } from '../../utils/constants';
 import { getESLintConfigType } from './getESLintConfigType';
 
 /**

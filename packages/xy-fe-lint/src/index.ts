@@ -1,9 +1,9 @@
-import type { InitOptions, ScanOptions } from './types';
-import initAction from './actions/init';
 import ora from 'ora';
-import { PKG_NAME } from './utils/constants';
 import scanAction from './actions/scan';
+import initAction from './actions/init';
+import { PKG_NAME } from './utils/constants';
 import printReport from './utils/print-report';
+import type { InitOptions, ScanOptions } from './types';
 
 type IInitOptions = Omit<InitOptions, 'checkVersionUpdate'>;
 

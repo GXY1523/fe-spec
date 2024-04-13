@@ -3,8 +3,13 @@ import fs from 'fs-extra';
 
 // 读取 package.json
 const pkg: Record<string, any> = JSON.parse(
-  fs.readFileSync(path.join(__dirname, '../../package.json'), 'utf-8'),
+  fs.readFileSync(path.join(__dirname, '../../package.json'), 'utf8'),
 );
+
+export enum UNICODE {
+  success = '\u2714', // ✔
+  failure = '\u2716', // ✖
+}
 
 /**
  * 包名
@@ -12,14 +17,9 @@ const pkg: Record<string, any> = JSON.parse(
 export const PKG_NAME: string = pkg.name;
 
 /**
- * 包 版本号
+ * 包版本号
  */
 export const PKG_VERSION: string = pkg.version;
-
-export enum UNICODE {
-  success = '\u2714', // ✔
-  failure = '\u2716', // ✖
-}
 
 /**
  * 项目类型
@@ -81,12 +81,12 @@ export const ESLINT_FILE_EXT: string[] = ['.js', '.jsx', '.ts', '.tsx', '.vue'];
  * 需要同步到 config/.eslintignore.ejs
  */
 export const ESLINT_IGNORE_PATTERN: string[] = [
-  'node_modules/',
-  'build/',
-  'dist/',
-  'coverage/',
-  'es/',
-  'lib/',
+  'node_modules',
+  'build',
+  'dist',
+  'coverage',
+  'es',
+  'lib',
   '**/*.min.js',
   '**/*-min.js',
   '**/*.bundle.js',

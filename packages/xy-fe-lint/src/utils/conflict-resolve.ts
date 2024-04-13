@@ -1,10 +1,10 @@
-import glob from 'glob';
 import path from 'path';
 import fs from 'fs-extra';
-import type { PKG } from '../types';
+import glob from 'glob';
+import inquirer from 'inquirer';
 import log from './log';
 import { PKG_NAME } from './constants';
-import inquirer from 'inquirer';
+import type { PKG } from '../types';
 
 // 精确移除依赖
 const packageNamesToRemove = [

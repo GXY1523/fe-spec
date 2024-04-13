@@ -1,20 +1,20 @@
 #!/usr/bin/env node
-import glob from 'glob';
 import path from 'path';
 import fs from 'fs-extra';
-import npmType from './utils/npm-type';
-import log from './utils/log';
-import { execSync } from 'child_process';
-import { program } from 'commander';
-import { PKG_NAME, PKG_VERSION } from './utils/constants';
-import generateTemplate from './utils/generate-template';
-import init from './actions/init';
 import ora from 'ora';
-import scan from './actions/scan';
-import printReport from './utils/print-report';
+import glob from 'glob';
+import { program } from 'commander';
 import spawn from 'cross-spawn';
-import { getAmendFiles, getCommitFiles } from './utils/git';
+import { execSync } from 'child_process';
+import init from './actions/init';
+import scan from './actions/scan';
 import update from './actions/update';
+import log from './utils/log';
+import printReport from './utils/print-report';
+import npmType from './utils/npm-type';
+import { getCommitFiles, getAmendFiles } from './utils/git';
+import generateTemplate from './utils/generate-template';
+import { PKG_NAME, PKG_VERSION } from './utils/constants';
 
 const cwd = process.cwd();
 

@@ -1,12 +1,12 @@
+import fg from 'fast-glob';
+import { readFile, writeFile } from 'fs-extra';
+import markdownlint, { LintError } from 'markdownlint';
+import markdownlintRuleHelpers from 'markdownlint-rule-helpers';
 import { extname, join } from 'path';
 import { Config, PKG, ScanOptions } from '../../types';
 import { MARKDOWN_LINT_FILE_EXT, MARKDOWN_LINT_IGNORE_PATTERN } from '../../utils/constants';
-import fg from 'fast-glob';
-import markdownlint, { LintError } from 'markdownlint';
-import { getMarkdownlintConfig } from './getMarkdownlintConfig';
 import { formatMarkdownlintResults } from './formatMarkdownlintResults';
-import { readFile, writeFile } from 'fs-extra';
-import markdownlintRuleHelpers from 'markdownlint-rule-helpers';
+import { getMarkdownlintConfig } from './getMarkdownlintConfig';
 
 export interface DoMarkdownlintOptions extends ScanOptions {
   pkg: PKG;

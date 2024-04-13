@@ -36,6 +36,7 @@ describe(`'fix' command`, () => {
 
 describe(`'exec' command`, () => {
   const semverRegex = /(\d+)\.(\d+)\.(\d+)/;
+
   test(`'exec eslint' should work as expected`, async () => {
     const { stdout } = await cli(['exec', 'eslint', '--version']);
     expect(stdout).toMatch(semverRegex);
