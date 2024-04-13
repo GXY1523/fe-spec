@@ -1,6 +1,6 @@
 {
   "name": "xy-fe-lint",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "前端编码规范工程化脚手架",
   "keywords": [
     "xy",
@@ -62,10 +62,6 @@
     "commander": "^6.2.1",
     "cross-spawn": "^7.0.3",
     "ejs": "^3.1.5",
-    "xy-commitlint-config": "workspace:^",
-    "gxy-eslint-config": "workspace:^",
-    "xy-markdownlint-config": "workspace:^",
-    "xy-stylelint-config": "workspace:^",
     "eslint": "^8.7.0",
     "eslint-config-egg": "^10.0.0",
     "eslint-config-prettier": "^8.3.0",
@@ -80,6 +76,7 @@
     "fast-glob": "^3.2.11",
     "fs-extra": "^9.0.1",
     "glob": "^7.1.6",
+    "gxy-eslint-config": "workspace:^",
     "husky": "^3.1.0",
     "inquirer": "^7.3.3",
     "is-docker": "^2.1.1",
@@ -93,6 +90,9 @@
     "stylelint-scss": "^4.1.0",
     "terminal-link": "^2.1.1",
     "text-table": "^0.2.0",
-    "vue-eslint-parser": "^7.3.0"
+    "vue-eslint-parser": "^7.3.0",
+    "xy-commitlint-config": "workspace:^",
+    "xy-markdownlint-config": "workspace:^",
+    "xy-stylelint-config": "workspace:^"
   }
 }
