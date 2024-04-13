@@ -28,6 +28,7 @@ const chooseEslintType = async (): Promise<string> => {
 
 /**
  * 选择是否启用 stylelint
+ * @param defaultValue
  */
 const chooseEnableStylelint = async (defaultValue: boolean): Promise<boolean> => {
   const { enable } = await inquirer.prompt({
@@ -43,7 +44,7 @@ const chooseEnableStylelint = async (defaultValue: boolean): Promise<boolean> =>
 /**
  * 选择是否启用 markdownlint
  */
-const chooseEnableMarkdownlint = async (): Promise<boolean> => {
+const chooseEnableMarkdownLint = async (): Promise<boolean> => {
   const { enable } = await inquirer.prompt({
     type: 'confirm',
     name: 'enable',
@@ -107,7 +108,7 @@ export default async (options: InitOptions) => {
   if (typeof options.enableMarkdownlint === 'boolean') {
     config.enableMarkdownlint = options.enableMarkdownlint;
   } else {
-    config.enableMarkdownlint = await chooseEnableMarkdownlint();
+    config.enableMarkdownlint = await chooseEnableMarkdownLint();
   }
 
   // 初始化 `enablePrettier`

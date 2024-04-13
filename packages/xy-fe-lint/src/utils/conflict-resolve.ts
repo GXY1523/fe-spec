@@ -1,7 +1,7 @@
 import glob from 'glob';
 import path from 'path';
 import fs from 'fs-extra';
-import { PKG } from '../types';
+import type { PKG } from '../types';
 import log from './log';
 import { PKG_NAME } from './constants';
 import inquirer from 'inquirer';
