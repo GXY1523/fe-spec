@@ -40,6 +40,10 @@ export default defineConfig4CustomTheme({
           { text: 'xy-eslint-plugin', link: '/npm/eslint-plugin.md' },
         ],
       },
+      {
+        text: '脚手架',
+        items: [{ text: 'xy-fe-lint', link: '/cli/xy-fe-lint.md' }],
+      },
     ],
     sidebar: [
       {
@@ -93,6 +97,10 @@ export default defineConfig4CustomTheme({
           { title: 'gxy-eslint-config', path: '/npm/eslint.md' },
           { title: 'xy-eslint-plugin', path: '/npm/eslint-plugin.md' },
         ],
+      },
+      {
+        title: '脚手架',
+        children: [{ title: 'xy-fe-lint', path: '/cli/xy-fe-lint.md' }],
       },
     ],
     logo: '/img/logo.png',

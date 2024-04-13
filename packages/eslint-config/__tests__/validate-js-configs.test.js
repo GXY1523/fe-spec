@@ -12,7 +12,7 @@ function isObject(obj) {
 }
 
 describe('Validate JS configs', () => {
-  it('Validate gxy-eslint-config', async () => {
+  it('Validate xy-eslint-config', async () => {
     const configPath = './index.js';
     const filePath = path.join(__dirname, './fixtures/index.js');
 
@@ -33,7 +33,7 @@ describe('Validate JS configs', () => {
     assert.notEqual(sumBy(results, 'warningCount'), 0);
   });
 
-  it('Validate gxy-eslint-config/es5', async () => {
+  it('Validate xy-eslint-config/es5', async () => {
     const configPath = './es5.js';
     const filePath = path.join(__dirname, './fixtures/es5.js');
 
@@ -61,7 +61,7 @@ describe('Validate JS configs', () => {
     assert.notEqual(errorReportedByReactPlugin.length, 0);
   });
 
-  it('Validate gxy-eslint-config/vue', async () => {
+  it('Validate xy-eslint-config/vue', async () => {
     const configPath = './vue.js';
     const filePath = path.join(__dirname, './fixtures/vue.vue');
 
@@ -89,7 +89,7 @@ describe('Validate JS configs', () => {
     assert.notEqual(errorReportedByReactPlugin.length, 0);
   });
 
-  it('Validate gxy-eslint-config/essential', async () => {
+  it('Validate xy-eslint-config/essential', async () => {
     const configPath = './essential/index.js';
     const filePath = path.join(__dirname, './fixtures/index.js');
 
@@ -125,7 +125,7 @@ describe('Validate JS configs', () => {
     assert.equal(commaSpacingErrors[0].severity, 1);
   });
 
-  it('Validate gxy-eslint-config/essential/es5', async () => {
+  it('Validate xy-eslint-config/essential/es5', async () => {
     const configPath = './essential/es5.js';
     const filePath = path.join(__dirname, './fixtures/es5.js');
 
@@ -158,7 +158,7 @@ describe('Validate JS configs', () => {
     assert.equal(errorReportedByReactPluginBlackList.length, 0);
   });
 
-  it('Validate gxy-eslint-config/essential/react', async () => {
+  it('Validate xy-eslint-config/essential/react', async () => {
     const configPath = './essential/react.js';
     const filePath = path.join(__dirname, './fixtures/react.jsx');
 
@@ -191,7 +191,7 @@ describe('Validate JS configs', () => {
     assert.equal(errorReportedByReactPluginBlackList.length, 0);
   });
 
-  it('Validate gxy-eslint-config/essential/vue', async () => {
+  it('Validate xy-eslint-config/essential/vue', async () => {
     const configPath = './essential/vue.js';
     const filePath = path.join(__dirname, './fixtures/vue.vue');
 
@@ -225,7 +225,7 @@ describe('Validate JS configs', () => {
     assert.equal(errorReportedByReactPluginBlackList.length, 0);
   });
 
-  it('Validate gxy-eslint-config/node', async () => {
+  it('Validate xy-eslint-config/node', async () => {
     const configPath = './node.js';
     const filePath = path.join(__dirname, './fixtures/node.js');
 
@@ -248,10 +248,10 @@ describe('Validate JS configs', () => {
     assert.strictEqual(ruleIds.includes('node/prefer-promises/fs'), true);
     assert.strictEqual(ruleIds.includes('no-unused-vars'), true);
     assert.strictEqual(ruleIds.includes('node/no-new-require'), true);
-    assert.strictEqual(ruleIds.includes('semi'), false);
-    assert.strictEqual(ruleIds.includes('quotes'), false);
-    assert.strictEqual(errorCount, 5);
-    assert.strictEqual(warningCount, 3);
+    assert.strictEqual(ruleIds.includes('semi'), true);
+    assert.strictEqual(ruleIds.includes('quotes'), true);
+    assert.strictEqual(errorCount, 7);
+    assert.strictEqual(warningCount, 4);
 
     // 验证已关闭的 link 规则是否校验正常，以 node/exports-style 为例
     assert.strictEqual(ruleIds.includes('node/exports-style'), false);
