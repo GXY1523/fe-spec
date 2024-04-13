@@ -1,6 +1,6 @@
 {
   "name": "xy-fe-lint",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "前端编码规范工程化标准脚手架",
   "bin": "./lib/cli.js",
   "main": "./lib/index.js",
@@ -66,7 +66,7 @@
     "fast-glob": "^3.2.11",
     "fs-extra": "^9.0.1",
     "glob": "^7.1.6",
-    "gxy-eslint-config": "^0.0.9",
+    "gxy-eslint-config": "^0.0.10",
     "husky": "^3.1.0",
     "inquirer": "^7.3.3",
     "is-docker": "^2.1.1",
@@ -81,9 +81,9 @@
     "terminal-link": "^2.1.1",
     "text-table": "^0.2.0",
     "vue-eslint-parser": "^7.3.0",
-    "xy-commitlint-config": "^0.0.9",
-    "xy-markdownlint-config": "^0.0.9",
-    "xy-stylelint-config": "^0.0.9"
+    "xy-commitlint-config": "^0.0.10",
+    "xy-markdownlint-config": "^0.0.10",
+    "xy-stylelint-config": "^0.0.10"
   },
   "author": "GXY",
   "homepage": "https://github.com/GXY1523/fe-spec#readme",
