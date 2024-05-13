@@ -11,17 +11,17 @@ author:
 
 # CHANGELOG 规范
 
-## 前言
+## 提问
 
-作为一个开发者，我必须为我的项目维护一个更新日志（以下简称 `Changelog`）吗？
+作为一个开发者，是否一定要为自己的项目维护一个更新日志（以下简称 `Changelog`）？
 
-1. 如果你在维护一个开源项目，或者公司内部的底层技术产品，那么提供一个 `Changelog` `是必需的。开发者用户很可能需要从一个低版本升级到最新版，Changelog` 可以帮助他们了解新版本有哪些变化。
-2. 如果你在开发一个业务应用，那么 `Changelog` 不是必需的。然而提供一个 `Changelog` 会更好，因为其他协作者或是交接方能更直观地看到业务逻辑的演变。
+1. 如果是团队开发的项目，维护一个 Changelog 是必须的。对团队成员而言，Changelog 可以帮团队成员了解项目的变化动态。对用户而言，可以更清楚地了解项目的变化历史，知道软件的新功能、改进和修复
+2. 如果是开发一个业务应用，那么维护一个 Changelog 不是必须的，但是很建议维护一个 Changelog。它可以作为一个记录，方便日后回顾和查找
 
 [Git 规范](./git.md) 已经对 `Git` 提交日志的格式进行了约束，为何还要再约束 `Changelog` 的格式呢？
 
-1. 即便是约束了 `Git log` 的格式，也无法直接将 `Git log` 导出一个良好的 `Changelog`。因为 `Changelog` 中描述的内容需要更加精炼和归纳，对信息降噪处理等等，因此手写 `Changelog` 仍然是更好的选择。
-2. 不管是手写还是自动生成，`Changelog` 的格式都不能直接照搬 `Git log` 的格式。这两者的区别与联系同在。
+1. Git 提交日志只要记录代码的变更历史，而 Changelog 则更为注重向用户展示产品的迭代信息。
+2. Changelog 信息更加完整，它需要更加完整的描述变更内容，包括新增更能、优化和bug修复。Git 提交日志的信息会简略一些。
 
 ## 1. 文件
 
@@ -44,8 +44,8 @@ author:
 
   ```markdown
   <!-- bad -->
-  CHANGELOG.txt
   CHANGELOG.docx
+  CHANGELOG.txt
 
   <!-- good -->
   CHANGELOG.md
@@ -134,11 +134,11 @@ author:
 
   ```markdown
   <!-- bad -->
-  ## [2.0.0](https://version-diff-url) (20200905)
-  ## [2.0.0](https://version-diff-url) (2020-9-5)
+  ## [2.0.0](https://version-diff-date) (20200905)
+  ## [2.0.0](https://version-diff-date) (2020-9-5)
 
   <!-- good -->
-  ## [2.0.0](https://version-diff-url) (2020-09-05)
+  ## [2.0.0](https://version-diff-date) (2020-09-05)
   ```
 
 - 2.6.【推荐】更新类型 `type` 与 Git message header 中的 [`type`](./1.git.md#1.3.1-type) 相关联，可以不一一对应
@@ -161,42 +161,10 @@ author:
   3. 句式使用祈使句式。即一般情况不要增加主语。因为在绝大情况下，主语都是作者「我」。
   4. 注明修复的问题。如有提过 Issue，则在句尾增加 Issue 的 ID 和链接。
 
-## 样本示例
 
-  ```markdown
-  # 更新日志
-
-  ## [4.6.0](https://github.com/ant-design/ant-design/compare/4.5.4...4.6.0) (2020-08-23)
-
-  ### 新增
-
-  - 新增图片组件 Image。
-  - Table 新增 `sticky` 属性以支持固定表头和滚动条。[#25939](https://github.com/ant-design/ant-design/pull/25939)
-
-  ### 修复
-
-  - 修复 Pagination 字体相关样式问题。[#26230](https://github.com/ant-design/ant-design/pull/26230)
-  - 修复 Space `children` 有时会重新渲染的问题。[#26219](https://github.com/ant-design/ant-design/pull/26219)
-
-  ### 优化
-
-  - 用 hooks 重构 Upload。
-
-  ## [4.5.4](https://github.com/ant-design/ant-design/compare/4.5.3...4.5.4)(2020-08-12)
-
-  ### 新增
-
-  - 新增 `@badge-color` Less 变量。
-
-  ### 修复
-
-  - 修复 Form.Item 在 `hidden` 时引用 Less 样式时失效的问题。[#26152](https://github.com/ant-design/ant-design/pull/26152)
-
-  ```
 
 ## 参考资料
 
 - [Keep a Changelog](https://keepachangelog.com/)
-- [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog/blob/master/packages/conventional-changelog/CHANGELOG.md)
 - [Angular Changelog](https://github.com/angular/angular.js/blob/master/CHANGELOG.md)
-- [Ant Design Changelog](https://github.com/ant-design/ant-design/blob/master/CHANGELOG.zh-CN.md)
+- [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog/blob/master/packages/conventional-changelog/CHANGELOG.md)

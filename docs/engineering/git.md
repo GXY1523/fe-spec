@@ -13,7 +13,7 @@ author:
 
 ## 1. Git 提交日志格式规约
 
-### 1.1. 前言
+### 1.1. 提问
 
 为什么要对 `Git` 提交日志（`message`）的格式进行规约约束？
 
@@ -232,11 +232,11 @@ BREAKING CHANGE: 为了组件 API 规范的统一，本次升级将 size 属性�
 
 `Git tag` 就是通过语义化的名称来给仓库标注一个个具体的节点。与此同时还可以根据标签名称来大致了解当前项目的兼容性和迭代情况。
 
-命名格式为 `v{semver}`，`semver` 是遵循 [semantic version](https://semver.org/lang/zh-CN/) 的版本号，例如 `v1.2.3`。
+命名格式为 `v{semver}`，`semver` 是遵循 [semantic version](https://semver.org/lang/zh-CN/) 的版本号，例如 `v0.1.2`。
 
-相比于使用例如 `git tag v1.2.3` 这种「轻量标签」，更推荐使用如下命令生成「附注标签」：
+相比于使用例如 `git tag v0.1.2` 这种「轻量标签」，更推荐使用如下命令生成「附注标签」：
 
-`git tag -a v1.2.3 -m "发布经销商管理模块"`
+`git tag -a v0.1.2 -m "发布监控日志部分"`
 
 
 ## 参考资料
