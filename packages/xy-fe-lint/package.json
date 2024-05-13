@@ -66,7 +66,7 @@
     "fast-glob": "^3.2.11",
     "fs-extra": "^9.0.1",
     "glob": "^7.1.6",
-    "gxy-eslint-config": "workspace:^",
+    "gxy-eslint-config": "^0.1.0",
     "husky": "^3.1.0",
     "inquirer": "^7.3.3",
     "is-docker": "^2.1.1",
@@ -81,9 +81,9 @@
     "terminal-link": "^2.1.1",
     "text-table": "^0.2.0",
     "vue-eslint-parser": "^7.3.0",
-    "xy-commitlint-config": "workspace:^",
-    "xy-markdownlint-config": "workspace:^",
-    "xy-stylelint-config": "workspace:^"
+    "xy-commitlint-config": "^0.1.0",
+    "xy-markdownlint-config": "^0.1.0",
+    "xy-stylelint-config": "^0.1.0"
   },
   "author": "GXY",
   "homepage": "https://github.com/GXY1523/fe-spec#readme",
@@ -95,5 +95,5 @@
   "bugs": {
     "url": "https://github.com/GXY1523/fe-spec/issues"
   },
-  "gitHead": "e5da61692b437773961989c66b7b9894bfc1a9c7"
+  "gitHead": "1b2242cf0831e1d88e6a8ac08d4d612143a47d17"
 }
